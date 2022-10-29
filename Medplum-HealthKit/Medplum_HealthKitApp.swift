@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct Medplum_HealthKitApp: App {
+    
+    init() {
+        Health.startMonitoring()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
