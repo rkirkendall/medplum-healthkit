@@ -88,7 +88,7 @@ extension Health {
                         
                         let fhirSamples = buildFHIRFromSamples(newSamples)
                         for s in fhirSamples {
-                            print(s.debugDescription)
+                            print(try! s.asJSON())
                         }
                         
                         

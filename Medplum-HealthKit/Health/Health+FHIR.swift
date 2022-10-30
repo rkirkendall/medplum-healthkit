@@ -24,7 +24,10 @@ extension Health {
         
         let observations: [Observation] = samples.compactMap { sample in
             do {
-                return try fhirFactory?.observation(from: sample)
+                let obs = try fhirFactory?.observation(from: sample)
+                obs?.status = .final
+                // obs?.subject INSERT PT ID HERE
+                return obs
             }
             catch {
                 print("Building an observation failed: \(sample)")
