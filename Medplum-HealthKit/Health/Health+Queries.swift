@@ -10,6 +10,34 @@ import HealthKit
 
 extension Health {
     
+    static var observerQuery: HKObserverQuery {
+        let observerQueryDescriptors = allTypes.map { type in
+            HKQueryDescriptor(sampleType: type, predicate: nil)
+        }
+        
+        return HKObserverQuery(queryDescriptors: observerQueryDescriptors)
+        { query, updatedSampleTypes, completionHandler, error in
+            
+            if let error = error {
+                print("Observer query problem: \(error.localizedDescription)")
+            }
+            
+            if let types = updatedSampleTypes {
+                let anchorQueryDescriptors = types.map { type in
+                    HKQueryDescriptor(sampleType: type, predicate: nil)
+                }
+                
+                executeAnchorQuery(queryDescriptors: anchorQueryDescriptors, completionHandler: completionHandler)
+            }
+        }
+    }
+    
+    static func resetMonitoring() {
+        clearAnchor()
+        healthStore.stop(observerQuery)
+        startMonitoring()
+    }
+    
     static func startMonitoring() {
         if !HKHealthStore.isHealthDataAvailable() { return }
         healthStore.getRequestStatusForAuthorization(toShare: Set(), read: allTypes) { authStatus, error in
@@ -92,27 +120,6 @@ extension Health {
     }
     
     private static func executeObserverQuery() {
-                
-        let observerQueryDescriptors = allTypes.map { type in
-            HKQueryDescriptor(sampleType: type, predicate: nil)
-        }
-        
-        let observerQuery = HKObserverQuery(queryDescriptors: observerQueryDescriptors)
-        { query, updatedSampleTypes, completionHandler, error in
-            
-            if let error = error {
-                print("Observer query problem: \(error.localizedDescription)")
-            }
-            
-            if let types = updatedSampleTypes {
-                let anchorQueryDescriptors = types.map { type in
-                    HKQueryDescriptor(sampleType: type, predicate: nil)
-                }
-                
-                executeAnchorQuery(queryDescriptors: anchorQueryDescriptors, completionHandler: completionHandler)
-            }
-        }
-        
         healthStore.execute(observerQuery)
         
         for type in allTypes {

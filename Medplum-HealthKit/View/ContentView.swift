@@ -15,6 +15,10 @@ struct ContentView: View {
             Button("Authorize") {
                 Health.requestAuthorization()
             }
+            Spacer()
+            Button("Reset") {
+                Health.resetMonitoring()
+            }
         }
     }
 }

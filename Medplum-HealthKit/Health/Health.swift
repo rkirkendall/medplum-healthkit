@@ -14,7 +14,9 @@ struct Health {
     static let kAnchorStoreKey = "lastAnchor"    
     
     static let healthStore = HKHealthStore.init()
-    static let allTypes = Set([HKQuantityType(.stepCount)])    
+    static let allTypes = Set([HKQuantityType(.stepCount)])
+    
+    let observerQuery: HKObserverQuery
     
     static func requestAuthorization() {
         if !HKHealthStore.isHealthDataAvailable() { return }

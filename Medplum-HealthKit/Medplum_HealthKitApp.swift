@@ -16,7 +16,7 @@ struct Medplum_HealthKitApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView()            
         }
     }
 }

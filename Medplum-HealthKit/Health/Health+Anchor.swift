@@ -9,6 +9,10 @@ import HealthKit
 
 extension Health {
     
+    static func clearAnchor() {
+        UserDefaults.standard.removeObject(forKey: kAnchorStoreKey)
+    }
+    
     static func loadAnchor() -> HKQueryAnchor? {
         let encoded = UserDefaults.standard.data(forKey: kAnchorStoreKey)
                 
