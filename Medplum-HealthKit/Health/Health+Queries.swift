@@ -1,49 +1,14 @@
 //
-//  Health.swift
+//  Health+Queries.swift
 //  Medplum-HealthKit
 //
-//  Created by Ricky Kirkendall on 10/26/22.
+//  Created by Ricky Kirkendall on 10/30/22.
 //
 
 import Foundation
 import HealthKit
-import HealthKitToFhir
-import FHIR
 
-struct Health {
-    
-    static let kAnchorQueryResultLimit: Int = 200
-    static let kAnchorStoreKey = "lastAnchor"
-    
-    
-    static let healthStore = HKHealthStore.init()
-    static let allTypes = Set([HKQuantityType(.stepCount)])
-    
-    //FHIR
-    static var fhirFactory: ObservationFactory? {
-        do {
-            return try ObservationFactory()
-        } catch {
-            print("Problem initializing the Observation Factory")
-            return nil
-        }
-    }
-    
-    static func buildFHIRFromSamples(_ samples: [HKObject]) -> [Observation] {
-        
-        let observations: [Observation] = samples.compactMap { sample in
-            do {
-                return try fhirFactory?.observation(from: sample)
-            }
-            catch {
-                print("Building an observation failed: \(sample)")
-                return nil
-            }
-        }
-        
-        return observations
-        
-    }
+extension Health {
     
     static func startMonitoring() {
         if !HKHealthStore.isHealthDataAvailable() { return }
@@ -66,17 +31,8 @@ struct Health {
         }
     }
     
-    static func requestAuthorization() {
-        if !HKHealthStore.isHealthDataAvailable() { return }
-        healthStore.requestAuthorization(toShare: nil, read: allTypes) { success, error in
-            if !success && error != nil {
-                print(error!.localizedDescription)
-            } else {
-                print("Seems to have worked")
-                startMonitoring()
-            }
-        }
-    }
+    // Observer query: Long running. Has background delivery. Doesn't have list of items
+    // Anchored object query: Long running. Gives list of items. No background delivery.
     
     private static func executeAnchorQuery(queryDescriptors:[HKQueryDescriptor], completionHandler: @escaping HKObserverQueryCompletionHandler) {
         let lastAnchor = loadAnchor()
@@ -167,31 +123,4 @@ struct Health {
             }
         }
     }
-    
-    // Observer query: Long running. Has background delivery. Doesn't have list of items
-    // Anchored object query: Long running. Gives list of items. No background delivery.
-    
-    static func loadAnchor() -> HKQueryAnchor? {
-        let encoded = UserDefaults.standard.data(forKey: kAnchorStoreKey)
-                
-        guard let unwrappedEncoded = encoded else { return nil }
-        
-        guard let anchor = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(unwrappedEncoded as Data) as? HKQueryAnchor
-        else {
-            print("Problem fetching anchor")
-            return nil
-        }
-        return anchor
-    }
-    
-    static func saveAnchor(_ anchor: HKQueryAnchor) {
-        do {
-            let encoded = try NSKeyedArchiver.archivedData(withRootObject: anchor, requiringSecureCoding: false)
-            print("Attempting to save anchor: \(encoded.description)")
-            UserDefaults.standard.set(encoded, forKey: kAnchorStoreKey)
-        } catch {
-            print("Problem saving anchor")
-        }
-    }
-    
 }

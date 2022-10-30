@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E9447B23290EE62300012072 /* HealthKitToFhir in Frameworks */ = {isa = PBXBuildFile; productRef = E9447B22290EE62300012072 /* HealthKitToFhir */; };
+		E9447B28290EF73B00012072 /* Health+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B27290EF73B00012072 /* Health+Anchor.swift */; };
+		E9447B2A290EF77800012072 /* Health+FHIR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B29290EF77800012072 /* Health+FHIR.swift */; };
+		E9447B2C290EF81300012072 /* Health+Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B2B290EF81300012072 /* Health+Queries.swift */; };
 		E98591A82909DAFF00EAB960 /* Medplum_HealthKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98591A72909DAFF00EAB960 /* Medplum_HealthKitApp.swift */; };
 		E98591AA2909DAFF00EAB960 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98591A92909DAFF00EAB960 /* ContentView.swift */; };
 		E98591AC2909DB0100EAB960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98591AB2909DB0100EAB960 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9447B27290EF73B00012072 /* Health+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health+Anchor.swift"; sourceTree = "<group>"; };
+		E9447B29290EF77800012072 /* Health+FHIR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health+FHIR.swift"; sourceTree = "<group>"; };
+		E9447B2B290EF81300012072 /* Health+Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health+Queries.swift"; sourceTree = "<group>"; };
 		E98591A42909DAFF00EAB960 /* Medplum-HealthKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medplum-HealthKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98591A72909DAFF00EAB960 /* Medplum_HealthKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medplum_HealthKitApp.swift; sourceTree = "<group>"; };
 		E98591A92909DAFF00EAB960 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +46,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9447B24290EF6D700012072 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E98591A92909DAFF00EAB960 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9447B25290EF6F700012072 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E98591AB2909DB0100EAB960 /* Assets.xcassets */,
+				E98591AD2909DB0100EAB960 /* Preview Content */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E9447B26290EF71600012072 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				E98591B52909DB3500EAB960 /* Health.swift */,
+				E9447B2B290EF81300012072 /* Health+Queries.swift */,
+				E9447B29290EF77800012072 /* Health+FHIR.swift */,
+				E9447B27290EF73B00012072 /* Health+Anchor.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
 		E985919B2909DAFF00EAB960 = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +94,11 @@
 		E98591A62909DAFF00EAB960 /* Medplum-HealthKit */ = {
 			isa = PBXGroup;
 			children = (
-				E98591B72909DB4000EAB960 /* Medplum-HealthKit.entitlements */,
 				E98591A72909DAFF00EAB960 /* Medplum_HealthKitApp.swift */,
-				E98591A92909DAFF00EAB960 /* ContentView.swift */,
-				E98591AB2909DB0100EAB960 /* Assets.xcassets */,
-				E98591AD2909DB0100EAB960 /* Preview Content */,
-				E98591B52909DB3500EAB960 /* Health.swift */,
+				E9447B25290EF6F700012072 /* Assets */,
+				E9447B24290EF6D700012072 /* View */,
+				E98591B72909DB4000EAB960 /* Medplum-HealthKit.entitlements */,
+				E9447B26290EF71600012072 /* Health */,
 			);
 			path = "Medplum-HealthKit";
 			sourceTree = "<group>";
@@ -162,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9447B2C290EF81300012072 /* Health+Queries.swift in Sources */,
 				E98591AA2909DAFF00EAB960 /* ContentView.swift in Sources */,
 				E98591B62909DB3500EAB960 /* Health.swift in Sources */,
+				E9447B2A290EF77800012072 /* Health+FHIR.swift in Sources */,
+				E9447B28290EF73B00012072 /* Health+Anchor.swift in Sources */,
 				E98591A82909DAFF00EAB960 /* Medplum_HealthKitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +331,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Medplum-HealthKit/Medplum-HealthKit.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Medplum-HealthKit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Medplum-HealthKit/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = D8658PF8FX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -326,7 +362,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Medplum-HealthKit/Medplum-HealthKit.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Medplum-HealthKit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Medplum-HealthKit/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = D8658PF8FX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

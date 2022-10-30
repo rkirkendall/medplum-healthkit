@@ -11,7 +11,7 @@ import SwiftUI
 struct Medplum_HealthKitApp: App {
     
     init() {
-        Health.startMonitoring()
+        Health.startMonitoring()        
     }
     
     var body: some Scene {
