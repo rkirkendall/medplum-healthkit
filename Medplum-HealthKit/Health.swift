@@ -7,6 +7,8 @@
 
 import Foundation
 import HealthKit
+import HealthKitToFhir
+import FHIR
 
 struct Health {
     
@@ -16,6 +18,32 @@ struct Health {
     
     static let healthStore = HKHealthStore.init()
     static let allTypes = Set([HKQuantityType(.stepCount)])
+    
+    //FHIR
+    static var fhirFactory: ObservationFactory? {
+        do {
+            return try ObservationFactory()
+        } catch {
+            print("Problem initializing the Observation Factory")
+            return nil
+        }
+    }
+    
+    static func buildFHIRFromSamples(_ samples: [HKObject]) -> [Observation] {
+        
+        let observations: [Observation] = samples.compactMap { sample in
+            do {
+                return try fhirFactory?.observation(from: sample)
+            }
+            catch {
+                print("Building an observation failed: \(sample)")
+                return nil
+            }
+        }
+        
+        return observations
+        
+    }
     
     static func startMonitoring() {
         if !HKHealthStore.isHealthDataAvailable() { return }
@@ -73,13 +101,13 @@ struct Health {
                     // Process new and deleted samples
                     if let newSamples = newSamples {
                         print("New samples: ")
-                        // TODO: Re-run the anchor query if it finds stuff
-                        // to account for when there is more samples than allowed
-                        // from the query max return
                         
-                        for s in newSamples {
-                            print(s.description)
+                        let fhirSamples = buildFHIRFromSamples(newSamples)
+                        for s in fhirSamples {
+                            print(s.debugDescription)
                         }
+                        
+                        
                         if newSamples.count > 0 {
                             shouldQueryAgain = true
                         }

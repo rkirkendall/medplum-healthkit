@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HealthKitToFhir",
+        "repositoryURL": "https://github.com/microsoft/healthkit-to-fhir",
+        "state": {
+          "branch": null,
+          "revision": "3193ec9772d21a0e7df3a917b8a7ed1d541ea20f",
+          "version": "1.0.3"
+        }
+      },
+      {
+        "package": "FHIR",
+        "repositoryURL": "https://github.com/smart-on-fhir/Swift-FHIR",
+        "state": {
+          "branch": null,
+          "revision": "b68fb5d6c8137de4a06894e683dc1a726a832907",
+          "version": "4.2.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

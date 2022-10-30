@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9447B23290EE62300012072 /* HealthKitToFhir in Frameworks */ = {isa = PBXBuildFile; productRef = E9447B22290EE62300012072 /* HealthKitToFhir */; };
 		E98591A82909DAFF00EAB960 /* Medplum_HealthKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98591A72909DAFF00EAB960 /* Medplum_HealthKitApp.swift */; };
 		E98591AA2909DAFF00EAB960 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98591A92909DAFF00EAB960 /* ContentView.swift */; };
 		E98591AC2909DB0100EAB960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98591AB2909DB0100EAB960 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E98591BA2909DB4100EAB960 /* HealthKit.framework in Frameworks */,
+				E9447B23290EE62300012072 /* HealthKitToFhir in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +102,9 @@
 			dependencies = (
 			);
 			name = "Medplum-HealthKit";
+			packageProductDependencies = (
+				E9447B22290EE62300012072 /* HealthKitToFhir */,
+			);
 			productName = "Medplum-HealthKit";
 			productReference = E98591A42909DAFF00EAB960 /* Medplum-HealthKit.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +133,9 @@
 				Base,
 			);
 			mainGroup = E985919B2909DAFF00EAB960;
+			packageReferences = (
+				E9447B21290EE62300012072 /* XCRemoteSwiftPackageReference "healthkit-to-fhir" */,
+			);
 			productRefGroup = E98591A52909DAFF00EAB960 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9447B21290EE62300012072 /* XCRemoteSwiftPackageReference "healthkit-to-fhir" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/microsoft/healthkit-to-fhir";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9447B22290EE62300012072 /* HealthKitToFhir */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9447B21290EE62300012072 /* XCRemoteSwiftPackageReference "healthkit-to-fhir" */;
+			productName = HealthKitToFhir;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E985919C2909DAFF00EAB960 /* Project object */;
 }
