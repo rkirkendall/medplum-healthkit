@@ -26,6 +26,12 @@ extension Health {
             do {
                 let obs = try fhirFactory?.observation(from: sample)
                 obs?.status = .final
+                let serviceReqRef = Reference()
+                serviceReqRef.reference = "ServiceRequest/2daad37c-fec8-4467-8424-d6cd18cae436"
+                obs?.basedOn = [serviceReqRef]
+                let ptRef = Reference()
+                ptRef.reference = "Patient/a"
+                obs?.subject = ptRef
                 // obs?.subject INSERT PT ID HERE
                 return obs
             }
