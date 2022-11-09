@@ -11,6 +11,8 @@
 		E9447B28290EF73B00012072 /* Health+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B27290EF73B00012072 /* Health+Anchor.swift */; };
 		E9447B2A290EF77800012072 /* Health+FHIR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B29290EF77800012072 /* Health+FHIR.swift */; };
 		E9447B2C290EF81300012072 /* Health+Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B2B290EF81300012072 /* Health+Queries.swift */; };
+		E9447B3129101B7100012072 /* Medplum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B3029101B7100012072 /* Medplum.swift */; };
+		E9447B332910208600012072 /* MedplumToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9447B322910208600012072 /* MedplumToken.swift */; };
 		E98591A82909DAFF00EAB960 /* Medplum_HealthKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98591A72909DAFF00EAB960 /* Medplum_HealthKitApp.swift */; };
 		E98591AA2909DAFF00EAB960 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98591A92909DAFF00EAB960 /* ContentView.swift */; };
 		E98591AC2909DB0100EAB960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98591AB2909DB0100EAB960 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		E9447B27290EF73B00012072 /* Health+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health+Anchor.swift"; sourceTree = "<group>"; };
 		E9447B29290EF77800012072 /* Health+FHIR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health+FHIR.swift"; sourceTree = "<group>"; };
 		E9447B2B290EF81300012072 /* Health+Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Health+Queries.swift"; sourceTree = "<group>"; };
+		E9447B3029101B7100012072 /* Medplum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medplum.swift; sourceTree = "<group>"; };
+		E9447B322910208600012072 /* MedplumToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedplumToken.swift; sourceTree = "<group>"; };
 		E98591A42909DAFF00EAB960 /* Medplum-HealthKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medplum-HealthKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98591A72909DAFF00EAB960 /* Medplum_HealthKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medplum_HealthKitApp.swift; sourceTree = "<group>"; };
 		E98591A92909DAFF00EAB960 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,9 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				E98591B52909DB3500EAB960 /* Health.swift */,
+				E9447B3029101B7100012072 /* Medplum.swift */,
 				E9447B2B290EF81300012072 /* Health+Queries.swift */,
 				E9447B29290EF77800012072 /* Health+FHIR.swift */,
 				E9447B27290EF73B00012072 /* Health+Anchor.swift */,
+				E9447B322910208600012072 /* MedplumToken.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -197,7 +203,9 @@
 			files = (
 				E9447B2C290EF81300012072 /* Health+Queries.swift in Sources */,
 				E98591AA2909DAFF00EAB960 /* ContentView.swift in Sources */,
+				E9447B332910208600012072 /* MedplumToken.swift in Sources */,
 				E98591B62909DB3500EAB960 /* Health.swift in Sources */,
+				E9447B3129101B7100012072 /* Medplum.swift in Sources */,
 				E9447B2A290EF77800012072 /* Health+FHIR.swift in Sources */,
 				E9447B28290EF73B00012072 /* Health+Anchor.swift in Sources */,
 				E98591A82909DAFF00EAB960 /* Medplum_HealthKitApp.swift in Sources */,

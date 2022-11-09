@@ -18,6 +18,8 @@ struct Health {
     
     let observerQuery: HKObserverQuery
     
+    static let medplum = Medplum()
+    
     static func requestAuthorization() {
         if !HKHealthStore.isHealthDataAvailable() { return }
         healthStore.requestAuthorization(toShare: nil, read: allTypes) { success, error in

@@ -30,7 +30,7 @@ extension Health {
                 serviceReqRef.reference = "ServiceRequest/2daad37c-fec8-4467-8424-d6cd18cae436"
                 obs?.basedOn = [serviceReqRef]
                 let ptRef = Reference()
-                ptRef.reference = "Patient/a"
+                ptRef.reference = "Patient/56799d75-b773-4f83-b4ac-ffc47fe982c8"                                  
                 obs?.subject = ptRef
                 // obs?.subject INSERT PT ID HERE
                 return obs
