@@ -10,6 +10,9 @@ convert them into FHIR observation objects, and send post them to a Medplum inst
 4. Conversion of HealthKit samples to FHIR Observation objects via Microsoft's [HealthKit to FHIR project](https://github.com/microsoft/healthkit-to-fhir)
 5. Use of Medplum's RESTful API to [POST observations](https://github.com/rkirkendall/medplum-healthkit/blob/main/Medplum-HealthKit/Health/Medplum.swift) to patient records
 
+## Demo
+
+[![Demo video](https://cdn.loom.com/sessions/thumbnails/e7e029754d9e46719c753ebe2bf6f062-with-play.gif)](https://www.loom.com/share/e7e029754d9e46719c753ebe2bf6f062)
 
 ## Set up
 
