@@ -27,7 +27,9 @@ extension Health {
                     HKQueryDescriptor(sampleType: type, predicate: nil)
                 }
                 
-                executeAnchorQuery(queryDescriptors: anchorQueryDescriptors, completionHandler: completionHandler)
+                if anchorQueryDescriptors.count > 0 {
+                    executeAnchorQuery(queryDescriptors: anchorQueryDescriptors, completionHandler: completionHandler)
+                }
             }
         }
     }

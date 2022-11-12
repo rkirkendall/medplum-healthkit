@@ -32,7 +32,6 @@ extension Health {
                 let ptRef = Reference()
                 ptRef.reference = "Patient/56799d75-b773-4f83-b4ac-ffc47fe982c8"                                  
                 obs?.subject = ptRef
-                // obs?.subject INSERT PT ID HERE
                 return obs
             }
             catch {
