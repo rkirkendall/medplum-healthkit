@@ -1,5 +1,5 @@
 # medplum-healthkit
-A reference implementation for connecting iOS HealthKit data to Medplum for a simple patient monitoring use case.
+A reference implementation for connecting iOS HealthKit data to [Medplum Headless EHR](https://github.com/medplum/medplum) for a simple patient monitoring use case.
 
 This example queries HealthKit to extract data samples, 
 convert them into FHIR observation objects, and send post them to a Medplum instance. Features include:
